@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  const jwt = ''
+  const jwt = useRuntimeConfig().public.sirenToken
   const sirenNumber = body.sirenNumber
 
   const response = await $fetch(
@@ -11,7 +11,5 @@ export default defineEventHandler(async (event) => {
       }
     }
   )
-  console.log(response)
-
   return { siret: response }
 })

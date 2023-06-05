@@ -6,5 +6,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
+  },
+  runtimeConfig: {
+    public: {
+      sirenToken: process.env.SIRET_TOKEN || ''
+    }
   }
 })
