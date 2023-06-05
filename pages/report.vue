@@ -1,10 +1,9 @@
 <script setup>
 const client = useSupabaseClient()
-
+const data = ref([])
 // Fetch all data from 'form_data' table on component mount
 onMounted(async () => {
   const { data: rows, error } = await client.from('form_data').select('*')
-
   if (error) {
     console.error('Error: ', error)
   } else {
